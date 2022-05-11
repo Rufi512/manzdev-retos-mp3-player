@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="canonical" href="https://rufi512.github.io/manzdev-retos-mp3-player/"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Solución para el reto MP3 Player manzdev">
+    <meta name="keywords" content="mp3 player, html, css, javascript, github, manzdev reto, retos, rufi512,">
+    <meta property="og:type" content="music.playlist">
+    <meta property="og:title" content="MP3-player-reto-manzdev">
+    <meta property="og:url" content="https://rufi512.github.io/manzdev-retos-mp3-player/">
+    <meta property="og:image" content="./screenshots/1.png">
+    <meta property="og:description" content="Solución para el reto MP3 Player manzdev">
+    <meta property="og:audio" content="https://scummbar.com/mi2/MI1-CD/">
+    <meta property="music:creator" content="Michael Land">
+    <meta property="music:song" content="Monkey Island Theme">
+    <meta property="music:song" content="The SCUMM Bar">
+    <meta property="music:song" content="LeChuck's Theme">
+    <meta property="music:song" content="Monkey Island (Remix)">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@Rufi512">
+    <meta name="twitter:title" content="MP3-player-reto-manzdev">
+    <meta name="twitter:description" content="Solución para el reto MP3 Player manzdev">
+    <meta name="twitter:image" content="./screenshots/1.png">
+    <title>MP3-player-reto-manzdev</title>
+    <link rel="preload" href="./fonts/RobotoFlex-Regular.ttf" as="font" type="font/ttf">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+</head>
+
+<body>
+    <main class="container">
+        <section class="mp3-player">
+            <input type="checkbox" id="show-list" hidden>
+            <label class="show-list-label" for="show-list"> <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                    <path d="M32 40Q29.55 40 27.8 38.325Q26.05 36.65 26.05 34.25Q26.05 31.85 27.725 30.175Q29.4 28.5 31.8 28.5Q32.6 28.5 33.375 28.65Q34.15 28.8 34.9 29.15V12H44V15.55H37.9V34.3Q37.9 36.65 36.175 38.325Q34.45 40 32 40ZM6 15V12H29.65V15ZM6 23.25V20.25H29.65V23.25ZM6 31.5V28.5H21.3V31.5Z" /></svg> </label>
+           
+            <div class="art-box">
+                <img id="image" src="./data/covers/monkey.jpg" alt="cover">
+                <div class="times">
+                    <p id="current-time">0:00</p>
+                    <p id="audio-length">-:-</p>
+                </div>
+                <canvas id="canvas"></canvas>
+            </div>
+
+            <div class="tracks">
+                <ul id="track-list">
+                </ul>
+            </div>
+
+            <div class="controls-box">
+
+                <h3 id="title">-</h3>
+                <h4 id="artist">-</h4>
+
+                <div class="buttons">
+                    <button id="previous-button" onclick="previousTrack()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                            <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path d="M31.1 64.03c-17.67 0-31.1 14.33-31.1 32v319.9c0 17.67 14.33 32 32 32C49.67 447.1 64 433.6 64 415.1V96.03C64 78.36 49.67 64.03 31.1 64.03zM267.5 71.41l-192 159.1C67.82 237.8 64 246.9 64 256c0 9.094 3.82 18.18 11.44 24.62l192 159.1c20.63 17.12 52.51 2.75 52.51-24.62v-319.9C319.1 68.66 288.1 54.28 267.5 71.41z" /></svg></button>
+                    <button onclick="playAndPause()"><svg id="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                            <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z" /></svg>
+                        <svg id="icon-paused" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                            <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path d="M272 63.1l-32 0c-26.51 0-48 21.49-48 47.1v288c0 26.51 21.49 48 48 48L272 448c26.51 0 48-21.49 48-48v-288C320 85.49 298.5 63.1 272 63.1zM80 63.1l-32 0c-26.51 0-48 21.49-48 48v288C0 426.5 21.49 448 48 448l32 0c26.51 0 48-21.49 48-48v-288C128 85.49 106.5 63.1 80 63.1z" /></svg>
+                    </button>
+                    <button id="next-button" onclick="nextTrack()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                            <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path d="M287.1 447.1c17.67 0 31.1-14.33 31.1-32V96.03c0-17.67-14.33-32-32-32c-17.67 0-31.1 14.33-31.1 31.1v319.9C255.1 433.6 270.3 447.1 287.1 447.1zM52.51 440.6l192-159.1c7.625-6.436 11.43-15.53 11.43-24.62c0-9.094-3.809-18.18-11.43-24.62l-192-159.1C31.88 54.28 0 68.66 0 96.03v319.9C0 443.3 31.88 457.7 52.51 440.6z" /></svg></button>
+                </div>
+
+                <div>
+                    <div class="volume-bar">
+                        <div id="volume-indicator" class="indicator-ball"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="status-box">
+                <p>Cuando sólo hay un cadidato, sólo hay una elección</p>
+                <div id="current-indicator" class="indicator">
+                    <div class="line" id="indicator-show"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script type="text/javascript" src="./js/script.js"></script>
+</body>
+
+</html>

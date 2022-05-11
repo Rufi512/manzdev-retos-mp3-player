@@ -1,23 +1,20 @@
-# manzdev-retos-titulo
+# Manzdev-retos-mp3-player
 
-🌍 **URL del reto**: *https://lenguajejs.com/retos/nivel-facil/basic-card/*
+🌍 **URL del reto**: https://rufi512.github.io/manzdev-retos-mp3-player/*
 
 ## Datos
 
-- 🦄 **Desarrollador/a:** *Nombre*
-- 🐇 **Link a red social:** *https://twitter.com/nombre*
-- 🦾 **Perfil:** *Novato / Bajo / Medio / Avanzado / Experto*
-- 💬 **Un comentario breve o frase ingeniosa**: *-*
+- 🦄 **Desarrollador/a:** *Rufi512*
+- 🐇 **Link a red social:** *https://twitter.com/rufi512*
+- 🦾 **Perfil:** *Desconocido*
+- 💬 **Un comentario breve o frase ingeniosa**: *Hola buenas tardes*
 
 ## Observaciones
 
-*Escribe aquí tus observaciones sobre la implementación*
++ Este reto deberia tener una barra de volumen xd
 
-> Puedes encontrar otros retos de Manz.dev en: <br>▶ https://lenguajejs.com/retos/
+### Nota
+Hice un pequeño cambio en el medidor de volumen y en vez de mostrar uno fake hice que este funcionara realmente, lo cual fue un poquito complicado con el hecho de que hay métodos que simplemente no funcionan y desconozco el motivo xd.
 
----
-*Puedes borrar todo desde esta línea en adelante*
+Ah! y también le añadí una barra de volumen jsjs.
 
----
-
-Recuerda cambiar el título del repo, los datos y desplegar la versión en GitHub Pages e indicar la URL en la esquina superior derecha de tu repositorio de GitHub, junto a una pequeña descripción.

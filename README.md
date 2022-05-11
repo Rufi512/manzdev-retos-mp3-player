@@ -1,6 +1,6 @@
 # Manzdev-retos-mp3-player
 
-🌍 **URL del reto**: https://rufi512.github.io/manzdev-retos-mp3-player/*
+🌍 **URL del reto**: *https://rufi512.github.io/manzdev-retos-mp3-player/*
 
 ## Datos
 

@@ -5,7 +5,7 @@ let isTouching = false
 let touchOrigin
 let lastPositionTouchScreen
 let audio = new Audio()
-//audio.crossOrigin = "anonymous"
+audio.crossOrigin = "anonymous"
 const container = document.querySelector('.mp3-player')
 const volumeBar = document.querySelector(".volume-bar")
 const volumeIndicator = document.getElementById("volume-indicator")

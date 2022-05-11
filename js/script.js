@@ -5,7 +5,7 @@ let isTouching = false
 let touchOrigin
 let lastPositionTouchScreen
 let audio = new Audio()
-audio.crossOrigin = "anonymous"
+//audio.crossOrigin = "anonymous"
 const container = document.querySelector('.mp3-player')
 const volumeBar = document.querySelector(".volume-bar")
 const volumeIndicator = document.getElementById("volume-indicator")
@@ -18,9 +18,9 @@ const previousButton = document.getElementById("previous-button")
 const title = document.getElementById("title")
 const artist = document.getElementById("artist")
 const image = document.getElementById("image")
-
+const urlMain = "https://rufi512.github.io/manzdev-retos-mp3-player"
 const request = () => {
-    fetch('https://rufi512.github.io/manzdev-retos-mp3-player/data/songs.json')
+    fetch(`${urlMain}/data/songs.json`)
         .then((res) => { return res.json() }).then((data) => {
             tracks = data
             data.map((el, i) => {
@@ -203,7 +203,7 @@ const changeTrack = (position) => {
     audioLengthIndicator.innerText = '-:-'
     title.innerHTML = tracks[trackPosition].title
     artist.innerHTML = tracks[trackPosition].artist
-    image.src = `/data/covers/${tracks[trackPosition].image}`
+    image.src = `${urlMain}/data/covers/${tracks[trackPosition].image}`
     audio.src = `${tracks[trackPosition].url}`
 }
 

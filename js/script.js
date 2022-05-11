@@ -20,7 +20,7 @@ const artist = document.getElementById("artist")
 const image = document.getElementById("image")
 
 const request = () => {
-    fetch('../data/songs.json')
+    fetch('https://rufi512.github.io/manzdev-retos-mp3-player/data/songs.json')
         .then((res) => { return res.json() }).then((data) => {
             tracks = data
             data.map((el, i) => {

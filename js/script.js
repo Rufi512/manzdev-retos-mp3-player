@@ -204,8 +204,8 @@ const changeTrack = (position) => {
     audioLengthIndicator.innerText = '-:-'
     title.innerHTML = tracks[trackPosition].title
     artist.innerHTML = tracks[trackPosition].artist
-    image.src = `${urlMain}/data/covers/${tracks[trackPosition].image}`
-    audio.src = `${tracks[trackPosition].url}`
+    image.src = `../data/covers/${tracks[trackPosition].image}`
+    audio.src = `../data/audio/${tracks[trackPosition].url}`
 }
 
 const nextTrack = () => {

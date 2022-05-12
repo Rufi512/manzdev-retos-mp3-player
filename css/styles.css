@@ -220,7 +220,8 @@ body {
 }
 
 .buttons button:disabled{
-  fill: var(--gray);
+    cursor: auto;
+    fill: var(--gray);
 }
 
 .buttons #icon-paused {

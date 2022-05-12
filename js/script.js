@@ -174,6 +174,7 @@ const drawLines = () => {
 //Track Controls
 
 const playAndPause = () => {
+    audioCtx.resume()
     const buttons = document.querySelector('.buttons')
     if (tracks.length === 0) return
 
